@@ -1,0 +1,14 @@
+<h1> Time to Battle! </h1>
+<h2> <%= @game.player_one.name %> vs. <%= @game.player_two.name %> </h2>
+<br>
+<%= @game.player_one.name %>: <%= @game.player_one.hp %>HP
+<br>
+<%= @game.player_two.name %>: <%= @game.player_two.hp %>HP
+<br>
+<br>
+It is <%= @game.show_turn.name %>'s turn
+<br>
+<br>
+<form action = "/attack">
+  <input type = "submit" value = "Player One Attack" >
+</form>
