@@ -16,15 +16,19 @@ class Game
 
   def attack(player)
     player.hp -= 10
-    # @turn = @players[((@players.index(@turn)-1)**2)]
-    @turn = player
+    change_turn
+  end
+
+  def change_turn
+    @turn = show_opponent_turn
   end
 
   def show_turn
     @turn
   end
 
-  # def show_opponent_turn
-  #   @players[((@players.index(@turn)-1)**2)]
-  # end
+  def show_opponent_turn
+    @players[((@players.index(@turn)-1)**2)]
+  end
+
 end

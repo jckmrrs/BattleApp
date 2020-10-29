@@ -15,6 +15,9 @@ describe Game do
     it 'sets it to player ones turn to begin with' do
       expect(subject.show_turn).to eq player_1
     end
+    it 'sets the opponent turn to player 2' do
+      expect(subject.show_opponent_turn).to eq player_2
+    end
   end
 
   describe '#attack' do
@@ -25,12 +28,16 @@ describe Game do
   end
 
   describe '#turn' do
-    it 'after an attack it switches the turn from player one to player two' do
+    before(:each) do
       subject.attack(player_2)
+    end
+    it 'after an attack it switches the turn from player one to player two' do
       expect(subject.show_turn).to equal player_2
     end
+    it 'sets the opponent turn to player 1 after one attack' do
+      expect(subject.show_opponent_turn).to eq player_1
+    end
     it 'after two attach rounds, it is back to player ones turn' do
-      subject.attack(player_2)
       subject.attack(player_1)
       expect(subject.show_turn).to equal player_1
     end
