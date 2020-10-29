@@ -53,14 +53,12 @@ feature 'Attacking player 2' do
     scenario 'player 2 can attack player 1 and get a confirmation' do
       sign_in_and_play
       click_button 'Attack'
-      click_button 'Next Attack'
       click_button 'Attack'
       expect(page).to have_content("Josh attacked Jack")
     end
     scenario 'player 2 can attack player 1 and reduce the HP of player 1 by 10' do
       sign_in_and_play
       click_button 'Attack'
-      click_button 'Next Attack'
       click_button 'Attack'
       expect(page).to have_content("Jack: 50HP")
     end
@@ -68,14 +66,12 @@ feature 'Attacking player 2' do
     scenario 'player 2 can attack player 1 then it changes turn to player 1' do
       sign_in_and_play
       click_button 'Attack'
-      click_button 'Next Attack'
       click_button 'Attack'
       expect($game.show_turn.name).to eq 'Jack'
     end
     scenario 'player 2 can attack player 1 then shows it is player 1s turn' do
       sign_in_and_play
       click_button 'Attack'
-      click_button 'Next Attack'
       click_button 'Attack'
       expect(page).to have_content ("Jack's turn")
     end

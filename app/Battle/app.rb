@@ -29,12 +29,6 @@ class Battle < Sinatra::Base
     erb :attack
   end
 
-  get '/change_turn' do
-    @game = $game
-    @game.attack(@game.show_opponent_turn)
-    erb :attack_p2
-  end
-
   run! if app_file == $0
 
 end
